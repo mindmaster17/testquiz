@@ -1,0 +1,100 @@
+11.02 11:40 PM
+Css
+body {
+    background: linear-gradient(to right, red, yellow);
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+header {
+    padding: 1em;
+    background-color: #333;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+button {
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+}
+
+section {
+    margin-bottom: 2em;
+}
+/* Your existing CSS styling goes here */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
