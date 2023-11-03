@@ -1,71 +1,11 @@
 
 <!DOCTYPE html>
-<html>
-<head>
-    <style>
-        body {
-            text-align: center;
-            background-color: black;
-            color: white;
-        }
-
-        .time {
-            font-size: 40px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="time" id="time">5:00</div>
-    <script>
-        var interval;
-        var minutes = 5;
-        var seconds = 0;
-
-        function startTimer() {
-            interval = setInterval(function() {
-                if (seconds > 0) {
-                    seconds--;
-                } else {
-                    if (minutes > 0) {
-                        minutes--;
-                    }
-                    seconds = 59;
-                }
-
-                document.getElementById('time').textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
-            }, 1000);
-        }
-
-        function stopTimer() {
-            clearInterval(interval);
-        }
-
-        function resetTimer() {
-            stopTimer();
-            minutes = 5;
-            seconds = 0;
-            document.getElementById('time').textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
-        }
-
-        // Call the startTimer function automatically
-        startTimer();
-
-        // Automatically end the timer after 5 minutes
-        setTimeout(function() {
-            stopTimer();
-        }, 5 * 60 * 1000);
-    </script>
-
-</body>
-</html>
-
-
 <head>
   <link rel="stylesheet" type="text/css" href="quiz.css">
 </head>
 <html>
 <head>
+    <div class="bg-container">
     <title>Quiz</title>
     <style>
         .hidden {
@@ -113,7 +53,10 @@
                 <input type="radio" name="q5" value="d">Option 4<br>
             </li>
         </ol>
+        <div class=""button">
         <input type="submit" value="Submit Quiz">
+    </div>
+    </div>
     </form>
     <div id="result" class="hidden">
         <h2>Quiz Result</h2>
