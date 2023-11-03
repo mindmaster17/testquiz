@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create API</title>
+    <style>
+        .input-area, .result-area {
+            margin: 10px 0;
+        }
+        .result-area {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="input-area">
+        <label for="api-url">API URL:</label>
+        <input type="text" id="api-url" name="api-url">
+    </div>
+    <div class="input-area">
+        <label for="api-method">Method:</label>
+        <select id="api-method" name="api-method">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+            <option value="PUT">PUT</option>
+            <option value="DELETE">DELETE</option>
+        </select>
+    </div>
+    <div class="input-area">
+        <label for="api-headers">Headers:</label>
+        <textarea id="api-headers" name="api-headers" rows="4" cols="50"></textarea>
+    </div>
+    <div class="input-area">
+        <label for="api-body">Body:</label>
+        <textarea id="api-body" name="api-body" rows="4" cols="50"></textarea>
+    </div>
+    <button onclick="createAPI()">Create API</button>
+    <div class="result-area">
+        <h3>Result:</h3>
+        <pre id="result"></pre>
+    </div>
+    <script>
+        async function createAPI() {
+            const apiUrl = document.getElementById('api-url').value;
+            const apiMethod = document.getElementById('api-method').value;
+            const apiHeaders = document.getElementById('api-headers').value;
+            const apiBody = document.getElementById('api-body').value;
+
+            try {
+                let response = await fetch(apiUrl, {
+                    method: apiMethod
