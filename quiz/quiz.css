@@ -3,6 +3,7 @@
   background-image:url(https://mcdn.wallpapersafari.com/medium/3/5/zJ94qR.jpg);
   height:150vh;
   background-size:cover;
+  padding:50px;
 }
 .button{
  height:36px;
@@ -19,4 +20,5 @@ input[type="submit"] {
     width: 132px;
     border-radius: 7px;
     border-width: 0px;
+    padding:50px;
 }
