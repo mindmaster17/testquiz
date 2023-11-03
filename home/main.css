@@ -6,14 +6,33 @@
 
 
 
-.jumbotron a {
+.container{
     margin-bottom: 15px;
     font-size: 21px;
     font-weight: 200;
    background-image:url(https://img.freepik.com/premium-photo/black-purple-concrete-interior-background-empty-template-scene_118047-5200.jpg?w=360);
+   background-size:cover;
+   height:100vh
 }
 
+.jumbotron a {
+    margin-bottom: 15px;
+    font-size: 21px;
+    font-weight: 200;
+   background-color:#800e63;
 
+.btn-DJ {
+    text-shadow: 0 1px 0 #fff;
+    background-image: -webkit-linear-gradient(top,#fff 0,#e0e0e0 100%);
+    background-image: -o-linear-gradient(top,#fff 0,#e0e0e0 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#fff),to(#e0e0e0));
+    background-image: linear-gradient(to bottom,#fff 0,#e0e0e0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #dbdbdb;
+    border-color: #ccc;
+}
 
 
 
