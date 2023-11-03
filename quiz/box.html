@@ -1,5 +1,67 @@
 
 <!DOCTYPE html>
+11.04 12:27 AM
+Timer 
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+
+        .time {
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="time" id="time">5:00</div>
+    <script>
+        var interval;
+        var minutes = 5;
+        var seconds = 0;
+
+        function startTimer() {
+            interval = setInterval(function() {
+                if (seconds > 0) {
+                    seconds--;
+                } else {
+                    if (minutes > 0) {
+                        minutes--;
+                    }
+                    seconds = 59;
+                }
+
+                document.getElementById('time').textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(interval);
+        }
+
+        function resetTimer() {
+            stopTimer();
+            minutes = 5;
+            seconds = 0;
+            document.getElementById('time').textContent = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+        }
+
+        // Call the startTimer function automatically
+        startTimer();
+
+        // Automatically end the timer after 5 minutes
+        setTimeout(function() {
+            stopTimer();
+        }, 5 * 60 * 1000);
+    </script>
+
+</body>
+</html>
 <head>
   <link rel="stylesheet" type="text/css" href="quiz.css">
 </head>
