@@ -6,17 +6,14 @@
 
 
 
-.containerDJ{
-   background-image:url(https://img.freepik.com/premium-photo/black-purple-concrete-interior-background-empty-template-scene_118047-5200.jpg?w=360);
-   background-size:cover;
-   height:100vh
-}
+
+
 
 .jumbotron a {
     margin-bottom: 15px;
     font-size: 21px;
     font-weight: 200;
-   background-color:#800e63;
+   background-color:#cbd669;
 
 .btn-DJ {
     text-shadow: 0 1px 0 #fff;
