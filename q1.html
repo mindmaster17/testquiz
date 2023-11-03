@@ -1,0 +1,144 @@
+11.03 4:54 PM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        main {
+            padding: 2em;
+        }
+
+        section {
+            margin-bottom: 2em;
+        }
+
+        form {
+            margin-top: 1em;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+        }
+
+        input[type="radio"] {
+            margin-right: 0.5em;
+        }
+
+        button {
+            padding: 0.5em 1em;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+        }
+
+        #result {
+            display: none;
+        }
+
+        #result h2 {
+            color: #333;
+        }
+
+        footer {
+            padding: 1em;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+    <script defer>
+        document.addEventListener('DOMContentLoaded', function () {
+            function showResult() {
+                let score = 0;
+
+                for (let i = 1; i <= 10; i++) {
+                    const selectedOption = document.querySelector(`input[name="q${i}"]:checked`);
+                    if (selectedOption && selectedOption.value === 'correct') {
+                        score++;
+                    }
+                }
+
+                document.getElementById('quiz').style.display = 'none';
+                const resultSection = document.getElementById('result');
+                const resultScore = document.getElementById('resultScore');
+
+                resultScore.textContent = `Your score: ${score} out of 10`;
+                resultSection.style.display = 'block';
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Quiz App</h1>
+    </header>
+
+    <main>
+        <section id="quiz">
+            <h2>Question 1</h2>
+            <form id="questionForm1">
+                <label>
+                    <input type="radio" name="q1" value="a"> Option A
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="b"> Option B
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="c"> Option C
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="correct"> Option D
+                </label>
+            </form>
+
+            <!-- Repeat the above section for each question -->
+
+            <h2>Question 10</h2>
+            <form id="questionForm10">
+                <label>
+                    <input type="radio" name="q10" value="correct"> Option A
+                </label>
+                <label>
+                    <input type="radio" name="q10" value="b"> Option B
+                </label>
+                <label>
+                    <input type="radio" name="q10" value="c"> Option C
+                </label>
+                <label>
+                    <input type="radio" name="q10" value="d"> Option D
+                </label>
+            </form>
+
+            <button type="button" onclick="showResult()">Submit</button>
+        </section>
+
+        <section id="result">
+            <h2>Result</h2>
+            <p id="resultScore"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Quiz App</p>
+    </footer>
+</body>
+</html>
+
