@@ -1,6 +1,6 @@
 
 .bg-container{
-  background-image:url(https://cdn.wallpapersafari.com/71/99/kV457j.jpg);
+  background-image:url(https://mcdn.wallpapersafari.com/medium/3/5/zJ94qR.jpg);
   height:100vh;
   background-size:cover;
 }
@@ -14,7 +14,7 @@
 
 
 .input[type="submit"] {
-    background-color: blueviolet;
+    background-color: #42f55a;
     height: 42px;
     width: 132px;
     border-radius: 7px;
