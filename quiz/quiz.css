@@ -10,3 +10,13 @@
   color:black;
   background-color:#51fc6d;
 }
+
+
+
+.input[type="submit"] {
+    background-color: blueviolet;
+    height: 42px;
+    width: 132px;
+    border-radius: 7px;
+    border-width: 0px;
+}
