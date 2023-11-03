@@ -1,4 +1,4 @@
-const apiUrl = "https://opentdb.com/api.php?amount=10&category=18&type=multiple";
+const apiUrl = "https://opentdb.com/api.php?amount=10&category=17&difficulty=easy&type=multiple";
 
 fetch(apiUrl)
  .then((response) => response.json())
