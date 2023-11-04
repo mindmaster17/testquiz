@@ -1,3 +1,4 @@
+
 let fab = prompt("How Many Question You Want ??");
 const _question = document.getElementById('question');
 const _options = document.querySelector('.quiz-options');
@@ -6,7 +7,7 @@ const _playAgainBtn = document.getElementById('play-again');
 const _result = document.getElementById('result');
 const _correctScore = document.getElementById('correct-score');
 const _totalQuestion = document.getElementById('total-question');
-var geography = 22;
+const geography = 22;
 
 let correctAnswer = "",
     correctScore = askedCount = 0,
