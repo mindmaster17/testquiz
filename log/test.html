@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            width: 80%;
+            margin: auto;
+            overflow: auto;
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .option {
+            margin-bottom: 10px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        .btn-next {
+            background-color: #45a049;
+        }
+        .score-container {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div id="quiz"></div>
+        <div id="results"></div>
+        <div class="score-container" id="score"></div>
+        <button class="btn btn-next" id="next" onclick="loadQuestion()">Next</button>
+    </div>
+    <script>
+        let quizData = [];
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+
+        async function fetchQuiz() {
+            const response = await fetch('https://opentdb.com/api.php?amount=10&category=18&type=multiple');
+            quizData = await response.json();
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex < quizData.results.length) {
+                let currentQuestion = quizData.results[currentQuestionIndex];
+                document.getElementById('quiz').innerHTML = `
+                    <div class="question">${currentQuestion.question}</div>
+                    <div class="options">
+                        <div class="option" data-index="${currentQuestionIndex}" onclick="checkAnswer(this, 0)">${currentQuestion.incorrect_answers[0]}</div>
+                        <div class="option" data-index="${currentQuestionIndex}" onclick="checkAnswer(this, 1)">${currentQuestion.incorrect_answers[1]}</div>
+                        <div class="option" data-index="${currentQuestionIndex}" onclick="checkAnswer(this, 2)">${currentQuestion.incorrect_answers[2]}</div>
+                        <div class="option" data-index="${currentQuestionIndex}" onclick="checkAnswer(this, 3)">${currentQuestion.correct_answer}</div>
+                    </div>
+                `;
+                currentQuestionIndex++;
+            } else {
+                showScore();
+            }
+        }
+
+        function checkAnswer(option, index) {
+            let currentQuestion = quizData.results[option.getAttribute('data-index')];
+            if (currentQuestion.correct_answer === currentQuestion.incorrect_answers[index]) {
+                correctAnswers++;
+            }
+            loadQuestion();
+        }
+
+        function showScore() {
+            document.getElementById('score').innerHTML = `
+                <h2>Quiz Completed</h2>
+                <h3>Score: ${correctAnswers}/${quizData.results.length}</h3>
+            `;
+            document.getElementById('next').style.display = 'none';
+        }
+
+        fetchQuiz();
+    </script>
+</body>
+</html>
