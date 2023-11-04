@@ -183,3 +183,48 @@ body {
         font-size: 1rem;
     }
 }
+
+
+Navadeep
+
+bodydj {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.quizdj {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0 0 20px;
+}
+
+.questiondj {
+  margin: 10px 0;
+}
+
+labeldj {
+  display: block;
+  margin: 5px 0;
+}
+
+.submit-buttondj {
+  background-color: #0074d9;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-buttondj:hover {
+  background-color: #0056a3;
+}
+
