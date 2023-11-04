@@ -6,6 +6,7 @@ const _playAgainBtn = document.getElementById('play-again');
 const _result = document.getElementById('result');
 const _correctScore = document.getElementById('correct-score');
 const _totalQuestion = document.getElementById('total-question');
+var geography = 22;
 
 let correctAnswer = "",
     correctScore = askedCount = 0,
@@ -13,7 +14,7 @@ let correctAnswer = "",
 
 // load question from API
 async function loadQuestion() {
-    const APIUrl = 'https://opentdb.com/api.php?amount=10&category=22&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=22&difficulty=easy';
+    const APIUrl = 'https://opentdb.com/api.php?amount=10&category=${geography}&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=${geography}&difficulty=easy';
     const result = await fetch(`${APIUrl}`)
     const data = await result.json();
     _result.innerHTML = "";
