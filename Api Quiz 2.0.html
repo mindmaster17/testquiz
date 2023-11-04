@@ -1,0 +1,109 @@
+11.04 12:51 PM
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        .option-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .option {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #f2f2f2;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="question"></div>
+        <ul class="option-list"></ul>
+        <button class="btn">Submit</button>
+        <div class="result"></div>
+    </div>
+
+    <script>
+        const quizData = [
+            {
+                question: "What is the capital of France?",
+                options: ["New York", "London", "Paris", "Berlin"],
+                correct: "Paris"
+            },
+            {question: "What is the capital of France?",
+                options: ["Neork", "Ldon", "Pis", "rlin"],
+                correct: "Pis"
+            },
+            // ... add more questions here
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const questionContainer = document.querySelector(".question");
+            const optionList = document.querySelector(".option-list");
+
+            questionContainer.textContent = quizData[currentQuestion].question;
+            optionList.innerHTML = "";
+
+            quizData[currentQuestion].options.forEach(option => {
+                const listItem = document.createElement("li");
+                listItem.textContent = option;
+                listItem.classList.add("option");
+                optionList.appendChild(listItem);
+            });
+        }
+
+        function handleOptionClick(e) {
+            if (e.target.textContent === quizData[currentQuestion].correct) {
+                score++;
+            }
+
+            currentQuestion++;
+
+            if (currentQuestion < quizData.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const resultContainer = document.querySelector(".result");
+            resultContainer.textContent = `Your score is ${score} out of ${quizData.length}`;
+        }
+
+        loadQuestion();
+
+        const optionList = document.querySelector(".option-list");
+        optionList.addEventListener("click", handleOptionClick);
+    </script>
+</body>
+</html>
