@@ -1,11 +1,11 @@
 .main-heading{
-  font-size:70px;
+  font-size:50px;
   text-align:center;
 }
 
 .button-class{
-  background-color:#a87132;
-  color:white;
+  background-color:#42d1d6;
+  color:black;
   height:36px;
   width:90px;
   borderradius:7px;
