@@ -1,0 +1,13 @@
+.main-heading{
+  font-size:70px;
+  text-align:center;
+}
+
+.button{
+  background-color:#a87132;
+  color:white;
+  height:36px;
+  width:90px;
+  borderradius:7px;
+  borderwidth:0px
+}
