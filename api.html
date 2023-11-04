@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
         }
-        .quiz-container {
+        .DJ {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -16,20 +16,20 @@
         .question {
             margin-bottom: 10px;
         }
-        .option-list {
+        .NCK-list {
             list-style-type: none;
             padding: 0;
         }
-        .option {
+        .NCK {
             margin-bottom: 10px;
             cursor: pointer;
         }
-        .btn {
+        .SPC {
             padding: 10px 20px;
             font-size: 18px;
             cursor: pointer;
         }
-        .btn:hover {
+        .SPC:hover {
             background-color: #f2f2f2;
         }
         .result {
@@ -41,10 +41,10 @@
     </style>
 </head>
 <body>
-    <div class="quiz-container">
+    <div class="DJ">
         <div class="question"></div>
-        <ul class="option-list"></ul>
-        <button class="btn">Submit</button>
+        <ul class="NCK-list"></ul>
+        <button class="SPC">Submit</button>
         <div class="result"></div>
     </div>
 
@@ -52,11 +52,11 @@
         const quizData = [
             {
                 question: "What is the capital of France?",
-                options: ["New York", "London", "Paris", "Berlin"],
+                NCKs: ["New York", "London", "Paris", "Berlin"],
                 correct: "Paris"
             },
             {question: "What is the capital of France?",
-                options: ["Neork", "Ldon", "Pis", "rlin"],
+                NCKs: ["Neork", "Ldon", "Pis", "rlin"],
                 correct: "Pis"
             },
             // ... add more questions here
@@ -67,20 +67,20 @@
 
         function loadQuestion() {
             const questionContainer = document.querySelector(".question");
-            const optionList = document.querySelector(".option-list");
+            const NCKList = document.querySelector(".NCK-list");
 
             questionContainer.textContent = quizData[currentQuestion].question;
-            optionList.innerHTML = "";
+            NCKList.innerHTML = "";
 
-            quizData[currentQuestion].options.forEach(option => {
+            quizData[currentQuestion].NCKs.forEach(NCK => {
                 const listItem = document.createElement("li");
-                listItem.textContent = option;
-                listItem.classList.add("option");
-                optionList.appendChild(listItem);
+                listItem.textContent = NCK;
+                listItem.classList.add("NCK");
+                NCKList.appendChild(listItem);
             });
         }
 
-        function handleOptionClick(e) {
+        function handleNCKClick(e) {
             if (e.target.textContent === quizData[currentQuestion].correct) {
                 score++;
             }
@@ -101,8 +101,8 @@
 
         loadQuestion();
 
-        const optionList = document.querySelector(".option-list");
-        optionList.addEventListener("click", handleOptionClick);
+        const NCKList = document.querySelector(".NCK-list");
+        NCKList.addEventListener("click", handleNCKClick);
     </script>
 </body>
 </html>
