@@ -4,7 +4,7 @@ let score = 0;
 let selectedOptionIndex;
 
 function startQuiz() {
- fetch('https://opentdb.com/api.php?amount=10&category=18&type=multiple')
+ fetch('https://opentdb.com/api.php?amount=10&category=22&type=multiple')
     .then(response => response.json())
     .then(data => {
       quizData = data.results;
