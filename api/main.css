@@ -35,7 +35,7 @@ body {
     background: var(--light-color);
     padding: 1.5rem 4rem 3rem 4rem;
     width: 600px;
-    height: 680px;
+    height: 700px;
     position: relative;
     box-shadow: 0 0px 138px rgb(0 0 0 / 10%), 0 0px 94px rgb(0 0 0 / 40%);
 }
