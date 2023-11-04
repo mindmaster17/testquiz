@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="./log.png" type="image/x-icon">
+    <title>Web Quiz Template</title>
+    <link rel="stylesheet" href="https://www.lpktechnosoft.com/WebQuiz/vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="main1.css" rel="stylesheet">
+
+    <!-- animation stylesheet -->
+    <link href="https://www.lpktechnosoft.com/WebQuiz/css/animate.css" rel="stylesheet">
+
+</head>
+
+<body class="home-bg mb-3">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn " onclick="closeNav()">&times;</a>
+        <a href="https://20sunny.netlify.app" target="_blank" class=""><img src="./me.jpg" class="user-profile shadow img-fluid rounded-circle" /></a>
+        <a class="text-white text-left"><small><p>Sunny Sharma</p></small></a>
+        <a href="./quiz.html">Play Quiz</a>
+        <a href="https://github.com/20sunny" target="_blank">My Profile</a>
+        <a href="https://github.com/20Sunny/quiz-using-api" target="_blank">Download Source Code</a>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <span class="menu" onclick="openNav()"><img src="menu.png" /></span>
+            <a class="zIndex-1 ml-n5 mr-5" href="#"><img src="logo.png" class="d-none d-sm-none d-md-block ml-n5 mr-5" /></a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link text-white cursor-pointer" data-toggle="modal" data-target="#loginModal" data-whatever="">Github</a>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link color-blue" href="#">|</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white cursor-pointer" data-toggle="modal" data-target="#signUpModal" data-whatever="">LinkedIn</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <div class="container-fluid mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <h1 class="color-blue mt-5 animated wow fadeInDown delay-0-1s">Quiz</h1>
+                <p class="animated wow fadeInDown delay-0-2s">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt voluptates rerum eveniet sapiente repellat esse, doloremque quod recusandae deleniti nostrum assumenda vel beatae sed aut modi nesciunt porro quisquam voluptatem.</p>
+                <a href="./quiz.html"><button class="gradientBtn animated wow fadeInUp delay-0-3s">Play Quiz</button></a>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-5">
+                <img src="right-img.png" class="img-fluid animated wow pulse slow infinite" />
+            </div>
+        </div>
+        <div class="float-left ml-5">
+            <img src="bottom-img.png" class="img-fluid animated wow swing slower infinite" />
+        </div>
+    </div>
+    <footer class="fixed-bottom mt-5 m-bg">
+        <p class="color-blue ml-5"><small>Copyright &copy; Sunny Sharma</small></p>
+    </footer>
+    <!-- Bootstrap core JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Left Side Bar -->
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.cssText = "width:270px; border-right: 10px solid #fff; box-shadow: 1px 8px 8px 8px rgba(73,21,155,0.3); -webkit-box-shadow: 1px 8px 8px 8px rgba(73,21,155,0.3);  -moz-box-shadow: 1px 8px 8px 8px rgba(73,21,155,0.3);";
+            var element = document.getElementById("mySidenav");
+            element.classList.add("animated wow bounceInLeft slow");
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.cssText = "width:0; border:none; box-shadow: none;";
+        }
+    </script>
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+
+</html>
