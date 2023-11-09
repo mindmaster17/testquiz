@@ -70,22 +70,27 @@ function selectOption(){
 }
 
 // answer checking
-function checkAnswer(){
-    _checkBtn.disabled = true;
-    if(_options.querySelector('.selected')){
-        let selectedAnswer = _options.querySelector('.selected span').textContent;
-        if(selectedAnswer == HTMLDecode(correctAnswer)){
-            correctScore++;
-            _result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
-        } else {
-            _result.innerHTML = `<p><i class = "fas fa-times"></i>Incorrect Answer!</p> <small><b>Correct Answer: </b>${correctAnswer}</small>`;
-        }
-        checkCount();
-    } else {
-        _result.innerHTML = `<p><i class = "fas fa-question"></i>Please select an option!</p>`;
-        _checkBtn.disabled = false;
-    }
+function checkAnswer(answer) {
+  const correctAnswer = questions[currentQuestionIndex].correct_answer;
+  const optionsContainer = document.getElementById("options-container");
+
+  if (answer === correctAnswer) {
+    // Display the correct answer for 2 seconds (2000 milliseconds)
+    optionsContainer.innerHTML = `<div class="option correct">${correctAnswer}</div>`;
+    setTimeout(() => {
+      currentQuestionIndex++;
+      displayQuestion();
+    }, 2000);
+  } else {
+    // Display the correct answer for 2 seconds (2000 milliseconds)
+    const correctOption = Array.from(optionsContainer.children).find(option => option.textContent === correctAnswer);
+    correctOption.classList.add("correct");
+    setTimeout(() => {
+      finishQuiz();
+    }, 2000);
+  }
 }
+
 
 // to convert html entities into normal text of correct answer if there is any
 function HTMLDecode(textString) {
