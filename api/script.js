@@ -87,7 +87,7 @@ function checkAnswer(answer) {
     correctOption.classList.add("correct");
     setTimeout(() => {
       finishQuiz();
-    }, 2000);
+    }, 5000);
   }
 }
 
