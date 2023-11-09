@@ -1,5 +1,13 @@
+// Get the value of 'questions' parameter from the URL
+const urlParams = new URLSearchParams(window.location.search);
+const urlFab = urlParams.get('questions');
 
-let fab = prompt("How Many Question You Want ??");
+// Use the prompt if the URL parameter is not present
+const fab = urlFab || prompt("How Many Questions Do You Want?"); // Default to 5 if neither the URL parameter nor prompt is provided
+
+const apiUrl = `https://opentdb.com/api.php?amount=${fab}&type=multiple`;
+
+
 const _question = document.getElementById('question');
 const _options = document.querySelector('.quiz-options');
 const _checkBtn = document.getElementById('check-answer');
