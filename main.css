@@ -38,11 +38,9 @@
   }
 }
 
-<!-- HTML !-->
-<button class="button-36" role="button">Button 36</button>
 
 /* CSS */
-.btn btn-primary{
+.buttondj{
   background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
   border-radius: 8px;
   border-style: none;
@@ -63,13 +61,13 @@
   touch-action: manipulation;
 }
 
-.button-36:hover {
+.buttondj:hover {
   box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
   transition-duration: .1s;
 }
 
 @media (min-width: 768px) {
-  .button-36 {
+  .buttondj {
     padding: 0 2.6rem;
   }
 }
