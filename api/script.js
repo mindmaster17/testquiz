@@ -2,9 +2,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const urlFab = urlParams.get('questions');
 
-// Use the prompt if the URL parameter is not present
-let fab = urlFab || prompt("How Many Questions Do You Want?"); // Default to 5 if neither the URL parameter nor prompt is provided
-
 
 const _question = document.getElementById('question');
 const _options = document.querySelector('.quiz-options');
