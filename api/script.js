@@ -80,7 +80,7 @@ function checkAnswer(){
             _result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
         } else {
             _result.innerHTML = `<p><i class = "fas fa-times"></i>Incorrect Answer!</p> <small><b>Correct Answer: </b>${correctAnswer}</small>`;
-             console.log(correctScore) //code to upload correct score
+             console.log(_result) //code to upload correct score
         }
         checkCount();
     } else {
