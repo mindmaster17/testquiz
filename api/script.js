@@ -1,4 +1,6 @@
-let fab = prompt("How Many Question You Want ??");
+const urlParams = new URLSearchParams(window.location.search);
+let fab = urlParams.get('questions') || 10; // default to 10 questions if the parameter is not provided
+
 const _question = document.getElementById('question');
 const _options = document.querySelector('.quiz-options');
 const _checkBtn = document.getElementById('check-answer');
