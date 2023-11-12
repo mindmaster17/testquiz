@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #9ad3e7;
+        }
+
+        .card {
+            border: rgb(136, 236, 248);
+            box-shadow: 0 6px 20px 0 rgba(120, 215, 250, 0.705);
+        }
+
+        .input-group-text {
+            border: none;
+            background-color: #8be5e4;
+        }
+
+        .btn {
+            border-radius: 30px;
+            background-color: #26a69a;
+            color: #ffffff;
+        }
+
+        .btn:hover {
+            background-color: #008489;
+        }
+    </style>
+</head>
+<br><br><br><body background=https://cdn.dribbble.com/users/37530/screenshots/1482401/media/89011f06c927bc8eea2627a1ef8e760d.png?resize=400x300&vertical=center>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="text-center">Sign Up</h4>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input id="name" type="text" colour="blue" class="form-control" id="name" placeholder="Enter name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" class="form-control" id="email" placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" class="form-control" id="password" placeholder="Enter password">
+                            </div>
+                           
+                            <button id="signInButton" type="submit" class="btn btn-block">Sign Up</button>
+                            <button id="signOutButton" type="submit" class="btn btn-block">Sign Out</button>
+                            <div id="message" class="text-center"> 
+                                <p> Sign in succesful</p>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
+    
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyBuvhmCAxFtU9o4RhoKRjWa7HzZqjB0D0U",
+          authDomain: "teamexpo-35e8a.firebaseapp.com",
+          projectId: "teamexpo-35e8a",
+          storageBucket: "teamexpo-35e8a.appspot.com",
+          messagingSenderId: "137881162931",
+          appId: "1:137881162931:web:b1332e48b06d1620a0ccc6",
+          measurementId: "G-X4PPWTVVDR"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth();
+        const provider = GoogleAuthProvider()
+    
+        const signInButton = document.getElementById(signInButton)
+        const signOutButton = document.getElementById(signOutButton)
+        const message = document.getElementById(message) 
+    
+        signOutButton.style.display = "none";
+        message.style.display = "none";
+
+        const userSignIn = async() => {
+            signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user
+                console.log(user);
+            }).catch((error) => {
+                const error = error.code;
+                const errorMessage = error.message
+            })
+        }
+
+        const userSignOut = async() => {
+            signOut(auth).then(() => {
+                alert("You have signed out succesfully!")
+            }).catch((error) => {})
+        }
+
+        onAuthStateChanged(auth, (user) =>{
+            if(user) {
+                alert("You have signed in")
+            }else{
+
+            }
+        })
+
+        signInButton.addEventListener('click', userSignIn);
+        signOutButton.addEventListener('click', userSignOut);
+    
+      </script>
+</body>
+
+</html>
