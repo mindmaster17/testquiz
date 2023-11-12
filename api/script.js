@@ -109,7 +109,7 @@ function checkCount(){
     } else {
         setTimeout(function(){
             loadQuestion();
-        }, 300);
+        }, 3000);
     }
 }
 
@@ -127,3 +127,4 @@ function restartQuiz(){
     setCount();
     loadQuestion();
 }
+const ucscore console.log(correctScore) //code to upload correct score
