@@ -1,79 +1,45 @@
 <!DOCTYPE html>
+<!-- Add Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.3.1/firebase-firestore.js"></script>
+
+<!-- Your Firebase Configuration -->
+<script>
+    const firebaseConfig = {
+    apiKey: "AIzaSyBuvhmCAxFtU9o4RhoKRjWa7HzZqjB0D0U",
+    authDomain: "teamexpo-35e8a.firebaseapp.com",
+    databaseURL: "https://teamexpo-35e8a-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "teamexpo-35e8a",
+    storageBucket: "teamexpo-35e8a.appspot.com",
+    messagingSenderId: "137881162931",
+    appId: "1:137881162931:web:b1332e48b06d1620a0ccc6",
+    measurementId: "G-X4PPWTVVDR"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+</script>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Submission Form</title>
+    <title>Quiz Submission Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Quiz Submission Form</h1>
-    <form id="quizForm">
-        <div id="questionsContainer"></div>
-        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
-    </form>
+    <div class="container">
+        <h1>Quiz Submission Website</h1>
+        <form id="quizForm">
+            <div id="questionsContainer"></div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+    </div>
 
-    <!-- Add Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.3.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.3.1/firebase-firestore.js"></script>
-
-    <script>
-        // Configure Firebase with your project config
-        const firebaseConfig = {
-        apiKey: "AIzaSyBuvhmCAxFtU9o4RhoKRjWa7HzZqjB0D0U",
-        authDomain: "teamexpo-35e8a.firebaseapp.com",
-        databaseURL: "https://teamexpo-35e8a-default-rtdb.asia-southeast1.firebasedatabase.app",
-        projectId: "teamexpo-35e8a",
-        storageBucket: "teamexpo-35e8a.appspot.com",
-        messagingSenderId: "137881162931",
-        appId: "1:137881162931:web:b1332e48b06d1620a0ccc6",
-        measurementId: "G-X4PPWTVVDR"
-        };
-
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        const db = firebase.firestore();
-
-        async function fetchQuestions() {
-            const response = await fetch('https://opentdb.com/api.php?amount=5&type=multiple');
-            const data = await response.json();
-
-            const questionsContainer = document.getElementById('questionsContainer');
-            data.results.forEach((question, index) => {
-                const options = [...question.incorrect_answers, question.correct_answer];
-                options.sort(() => Math.random() - 0.5);
-
-                questionsContainer.innerHTML += `
-                    <div>
-                        <p>${index + 1}. ${question.question}</p>
-                        <ul>
-                            ${options.map((option, i) => `<li><input type="radio" name="q${index}" value="${option}" required> ${option}</li>`).join('')}
-                        </ul>
-                    </div>
-                `;
-            });
-        }
-
-        async function submitQuiz() {
-            const form = document.getElementById('quizForm');
-            const formData = new FormData(form);
-            const submittedAnswers = {};
-
-            formData.forEach((value, key) => {
-                const questionIndex = key.substring(1);
-                submittedAnswers[questionIndex] = value;
-            });
-
-            // Store the submitted answers in Firebase Firestore
-            await db.collection('quizSubmissions').add({
-                answers: submittedAnswers,
-                timestamp: firebase.firestore.FieldValue.serverTimestamp()
-            });
-
-            alert('Quiz submitted successfully!');
-        }
-
-        window.onload = fetchQuestions;
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
