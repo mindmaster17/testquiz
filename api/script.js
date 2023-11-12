@@ -73,6 +73,7 @@ function selectOption(){
 // answer checking
 function checkAnswer(){
     _checkBtn.disabled = true;
+    console.log(correctScore) //code to upload correct score
     if(_options.querySelector('.selected')){
         let selectedAnswer = _options.querySelector('.selected span').textContent;
         if(selectedAnswer == HTMLDecode(correctAnswer)){
@@ -110,7 +111,7 @@ function checkCount(){
     } else {
         setTimeout(function(){
             loadQuestion();
-        }, 3000);
+        }, 1000);
     }
 }
 
@@ -128,4 +129,4 @@ function restartQuiz(){
     setCount();
     loadQuestion();
 }
-const ucscore = console.log(correctScore) //code to upload correct score
+
