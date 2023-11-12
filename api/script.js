@@ -127,4 +127,4 @@ function restartQuiz(){
     setCount();
     loadQuestion();
 }
-const ucscore console.log(correctScore) //code to upload correct score
+const ucscore = console.log(correctScore) //code to upload correct score
