@@ -99,6 +99,25 @@
 	  document.getElementById("register").addEventListener("click", function() {
 		  var email =  document.getElementById("email").value;
 		  var password = document.getElementById("password").value;
+		  //For adding Realtime Database
+		  firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+	          .then((res) => {
+        	      let user = {
+                	  username: username.value,
+                	  email: email.value,
+                	  password: password.value
+	              }
+
+	              firebase.database().ref(`users/${res.user.uid}`).set(user)
+        	          .then(() => {
+	                      alert("new user is registered")
+                      window.location = "auth.html"
+	                  })
+
+	           })
+        	   .catch((err) => {
+	               console.log("err=>", err)
+	           })
 		  //For new registration
 		  createUserWithEmailAndPassword(auth, email, password)
 		  .then((userCredential) => {
