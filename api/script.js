@@ -16,7 +16,11 @@ let correctAnswer = "",
 // load question from API
 async function loadQuestion() {
     const APIUrl = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=18&difficulty=easy';
-    const APIsports = 'https://opentdb.com/api.php?amount=10&category=21';
+    const APIsports = 'https://opentdb.com/api.php?amount=10&category=21&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=21&difficulty=easy';
+    const APIhistory = 'https://opentdb.com/api.php?amount=10&category=23&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=23&difficulty=easy';
+    const APIanimals = 'https://opentdb.com/api.php?amount=10&category=27&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=27&difficulty=easy';
+    const APIgadget = 'https://opentdb.com/api.php?amount=10&category=30&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=30&difficulty=easy';
+    const APIgk = 'https://opentdb.com/api.php?amount=10&category=9&difficulty=easyhttps://opentdb.com/api.php?amount=10&category=9&difficulty=easy';
     const result = await fetch(`${APIUrl}`)
     const data = await result.json();
     _result.innerHTML = "";
