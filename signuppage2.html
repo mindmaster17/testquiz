@@ -79,7 +79,7 @@
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
-        import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js'
+        import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js'
         import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore.js'    
         // Your web app's Firebase configuration
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -100,10 +100,10 @@
         const provider = new firebase.auth.GoogleAuthProvider();
     
         const signInButton = document.getElementById("signInButton");
-  const signOutButton = document.getElementById("signOutButton");
-  const message = document.getElementById("message");
-  const userName = document.getElementById("userName");
-  const userEmail = document.getElementById("userEmail");
+        const signOutButton = document.getElementById("signOutButton");
+        const message = document.getElementById("message");
+        const userName = document.getElementById("userName");
+        const userEmail = document.getElementById("userEmail");
 
   signOutButton.style.display = "none";
   message.style.display = "none";
