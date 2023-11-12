@@ -73,7 +73,6 @@ function selectOption(){
 // answer checking
 function checkAnswer(){
     _checkBtn.disabled = true;
-    console.log(correctScore) //code to upload correct score
     if(_options.querySelector('.selected')){
         let selectedAnswer = _options.querySelector('.selected span').textContent;
         if(selectedAnswer == HTMLDecode(correctAnswer)){
@@ -81,6 +80,7 @@ function checkAnswer(){
             _result.innerHTML = `<p><i class = "fas fa-check"></i>Correct Answer!</p>`;
         } else {
             _result.innerHTML = `<p><i class = "fas fa-times"></i>Incorrect Answer!</p> <small><b>Correct Answer: </b>${correctAnswer}</small>`;
+             console.log(correctScore) //code to upload correct score
         }
         checkCount();
     } else {
@@ -111,7 +111,7 @@ function checkCount(){
     } else {
         setTimeout(function(){
             loadQuestion();
-        }, 1000);
+        }, 500);
     }
 }
 
