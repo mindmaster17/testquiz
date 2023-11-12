@@ -93,42 +93,43 @@
         const auth = getAuth();
         const provider = GoogleAuthProvider()
     
-        const signInButton = document.getElementById(signInButton)
-        const signOutButton = document.getElementById(signOutButton)
-        const message = document.getElementById(message) 
-    
-        signOutButton.style.display = "none";
-        message.style.display = "none";
+        const signInButton = document.getElementById("signInButton");
+  const signOutButton = document.getElementById("signOutButton");
+  const message = document.getElementById("message");
+  const userName = document.getElementById("userName");
+  const userEmail = document.getElementById("userEmail");
 
-        const userSignIn = async() => {
-            signInWithPopup(auth, provider)
-            .then((result) => {
-                const user = result.user
-                console.log(user);
-            }).catch((error) => {
-                const error = error.code;
-                const errorMessage = error.message
-            })
-        }
+  signOutButton.style.display = "none";
+  message.style.display = "none";
 
-        const userSignOut = async() => {
-            signOut(auth).then(() => {
-                alert("You have signed out succesfully!")
-            }).catch((error) => {})
-        }
+  const userSignIn = async() => {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        const user = result.user
+        console.log(user);
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message
+    })
+  }
 
-        onAuthStateChanged(auth, (user) =>{
-            if(user) {
-                alert("You have signed in")
-            }else{
+  const userSignOut = async() => {
+    signOut(auth).then(() => {
+        alert("You have signed out successfully!");
+    }).catch((error) => {})
+  }
 
-            }
-        })
+  onAuthStateChanged(auth, (user) => {
+    if(user) {
+      signOutButton.style.display = "block";
+      message.style.display = "block";
+      userName.innerHTML = user.displayName;
+      userEmail.innerHTML = user.email
+    } else {
+      signOutButton.style.display = "none";
+      message.style.display = "none";
+    }
+  })
 
-        signInButton.addEventListener('click', userSignIn);
-        signOutButton.addEventListener('click', userSignOut);
-    
-      </script>
-</body>
-
-</html>
+  signInButton.addEventListener('click', userSignIn);
+  signOutButton.addEventListener('click', userSignOut);
